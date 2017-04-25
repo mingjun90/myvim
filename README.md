@@ -1,7 +1,8 @@
 # myvim
+
 A repo to deploy vim everywhere
 
-
+## Install vim and plugins
 
 1. Install vim8 
 	- download vim source file
