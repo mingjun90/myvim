@@ -54,7 +54,7 @@ A repo to deploy vim everywhere
 
 ## Dependency
 
-###[ale](https://github.com/w0rp/ale) (Asynchronous Lint Engine)
+### [ale](https://github.com/w0rp/ale) (Asynchronous Lint Engine)
 - python --> flake8
 	- `which flake8`
 	- `pip install flake8`
@@ -62,7 +62,7 @@ A repo to deploy vim everywhere
 	- `which jshint`
 	- `npm install -g jshint`
 
-###[vim-autopep8](https://github.com/tell-k/vim-autopep8)
+### [vim-autopep8](https://github.com/tell-k/vim-autopep8)
 - autopep8
 	- `which autopep8`
 	- `pip install autopep8`
