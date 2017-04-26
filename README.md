@@ -4,7 +4,7 @@ A repo to deploy vim everywhere
 
 ## Install vim and plugins
 
-1. Install vim8 
+1. Install [vim8](https://github.com/vim/vim/blob/master/runtime/doc/version8.txt) 
 	- download vim source file
 		- `git clone https://github.com/vim/vim.git ~/`
 	- install at local path (`redhat`)
@@ -42,7 +42,7 @@ A repo to deploy vim everywhere
 		- `vim --version`
 
 2. Apply custom settings
-	- install vundle
+	- install [vundle](https://github.com/VundleVim/Vundle.vim)
 		- `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 	- copy the custom vimrc to ~/.vim/vimrc
 		- `cd ~/.vim`
@@ -50,3 +50,19 @@ A repo to deploy vim everywhere
 	- install plugins
 		- Launch `vim` and run `:PluginInstall`
 
+3. Install dependency
+
+## Dependency
+
+###[ale](https://github.com/w0rp/ale) (Asynchronous Lint Engine)
+- python --> flake8
+	- `which flake8`
+	- `pip install flake8`
+- javascript --> jshint
+	- `which jshint`
+	- `npm install -g jshint`
+
+###[vim-autopep8](https://github.com/tell-k/vim-autopep8)
+- autopep8
+	- `which autopep8`
+	- `pip install autopep8`

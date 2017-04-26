@@ -13,15 +13,15 @@ call vundle#begin()
 """ let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-"Plugin 'Valloric/YouCompleteMe'
-" ctrlp
+""" vim style 
 Plugin 'scrooloose/nerdTree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
+""" language lint
 Plugin 'w0rp/ale'
-Plugin 'Shutnik/jshint2.vim'
 
+""" python
 Plugin 'tell-k/vim-autopep8'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'heavenshell/vim-pydocstring'
@@ -45,8 +45,9 @@ filetype plugin indent on    " required
 """ Inistall Plugins --> Launch vim and run :PluginInstall
 """ Just delete the line {Plugin XXXX} and then :PluginUpdate
 
+
 "-----------------------------------------------------------+
-""" format
+""" basic coding settings
 
 set tabstop=4       " The width of a TAB is set to 4.
                     " Still it is a \t. It is just that
@@ -75,8 +76,6 @@ set backspace=indent,eol,start
 " set ruler
 " set statusline+=col:\ %c,
 
-"-----------------------------------------------------------+
-""" syntastic
 
 "-----------------------------------------------------------+
 """ NERDTree
@@ -87,17 +86,16 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 "-----------------------------------------------------------+
 """ Tab navigation like Firefox.
+
 nnoremap <C-S-tab> :bprevious<CR>
 nnoremap <C-tab>   :bnext<CR>
 " let mapleader=" "
 let mapleader = "\<Space>"
 
-"-----------------------------------------------------------+
-""" flake8
-
 
 "-----------------------------------------------------------+
 """ airline
+
 let g:ailine_section_b = '%{strftime("%c")}'
 let g:ailine_section_y = 'BN: %{bufnr("%")}'
 let g:airline_theme = 'simple'
@@ -125,32 +123,31 @@ nmap <leader>bl :ls<CR>
 
 
 "-----------------------------------------------------------+
-""" ale
-" Write this in your vimrc file
+""" ale (asynchronous lint engine)
+
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
 " You can disable this option too
 " if you don't want linters to run on opening a file
 let g:ale_lint_on_enter = 0
-
-
-"-----------------------------------------------------------+
-""" jshint2
-let jshint2_save = 1
-let jshint2_min_height = 3
-let jshint2_max_height = 9
+let g:ale_echo_msg_format = '[%linter%][%severity%] %s'
 
 
 "-----------------------------------------------------------+
 """ jedi-vim
+
 autocmd FileType python setlocal completeopt-=preview
+
 
 "-----------------------------------------------------------+
 """ pydocstring
+
 nmap <silent> <C-I> <Plug>(pydocstring)
+
 
 "-----------------------------------------------------------+
 """ autopep8
+
 fun MyCallAutoPEP8()
     "let g:autopep8_disable_show_diff=0
     :call Autopep8()
