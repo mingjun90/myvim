@@ -37,7 +37,7 @@ A repo to deploy vim everywhere
             --enable-gnome-check \
             --enable-fontset \
             --with-x \
-            --with-compiledby="$USER"'
+            --with-compiledby="$USER"`
     - `sudo make -j 20`
         - `sudo make install`
     - check vim version
