@@ -6,7 +6,9 @@ A repo to deploy vim everywhere
 
 1. Install [vim8](https://github.com/vim/vim/blob/master/runtime/doc/version8.txt) 
 	- download vim source file
-		- `git clone https://github.com/vim/vim.git ~/`
+		- `cd ~`
+		- `git clone https://github.com/vim/vim.git`
+		- `cd ~/vim`
 	- install at local path (`redhat`)
 		- `make clean`
 		- `./configure --with-features=huge \
