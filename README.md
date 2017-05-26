@@ -6,15 +6,14 @@ A repo to deploy vim everywhere
 
 1. Install [vim8](https://github.com/vim/vim/blob/master/runtime/doc/version8.txt)
     - download vim source file
-        - `cd ~`
-        - `git clone https://github.com/vim/vim.git`
-        - `cd ~/vim`
-    - install at local path with python3 (`redhat`)
+        - `git clone https://github.com/vim/vim.git $HOME/vim/`
+    - install at local path on `redhat`
+        - `cd $HOME/vim/`
         - `make clean`
         - `./configure --with-features=huge \
             --enable-multibyte \
             --enable-luainterp \
-            --enable-python3interp \
+            --enable-pythoninterp \
             --enable-rubyinterp \
             --enable-cscope \
             --enable-gui=auto \
@@ -22,10 +21,10 @@ A repo to deploy vim everywhere
             --enable-fontset \
             --with-x \
             --with-compiledby="$USER" \
-            --with-python3-config-dir=/path/to/python3.5/config-3.5m`
+            --prefix=/home/$USER/.local`
         - `make -j 20 && make install`
         - add alias or export vim path to PATH
-    - install with python2 (`ubuntu16.04`)
+    - install on `ubuntu16.04`
         - `sudo apt install ncurses-dev`
         - `./configure --with-features=huge \
             --enable-multibyte \
@@ -57,10 +56,10 @@ A repo to deploy vim everywhere
 ## Dependency
 
 ### [ale](https://github.com/w0rp/ale) (Asynchronous Lint Engine)
-- python --> flake8
+- python ==> flake8
     - `which flake8`
     - `pip install flake8`
-- javascript --> jshint
+- javascript ==> jshint
     - `which jshint`
     - `npm install -g jshint`
 
