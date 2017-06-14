@@ -63,7 +63,7 @@ set list
 syntax on
 set background=dark
 
-set hlsearch         "highlight search pattern"
+set hlsearch        " highlight search pattern
 
 set listchars=nbsp:_,tab:>-,trail:~,extends:>,precedes:<
 
@@ -72,10 +72,7 @@ set rnu
 
 set backspace=indent,eol,start
 
-""" show column number
-" set ruler
-" set statusline+=col:\ %c,
-
+set pastetoggle=<F2> 
 
 "-----------------------------------------------------------+
 """ NERDTree
