@@ -1,3 +1,5 @@
+" This vimrc is for vim8 
+
 "-----------------------------------------------------------+
 """ vundle
 
@@ -20,6 +22,10 @@ Plugin 'vim-airline/vim-airline-themes'
 
 """ language lint
 Plugin 'w0rp/ale'
+
+""" Async completion
+Plugin 'maralla/completor.vim'
+Plugin 'ervandew/supertab'
 
 """ python
 Plugin 'tell-k/vim-autopep8'
@@ -153,3 +159,7 @@ endfun
 autocmd FileType python nnoremap <buffer> <F8> :call Autopep8()<CR>
 autocmd FileType python nnoremap <buffer> <C-F8> :call MyCallAutoPEP8()<CR>
 autocmd FileType python inoremap <buffer> <F8> <ESC>:call Autopep8()<CR>
+
+
+"-----------------------------------------------------------+
+""" completor.Vim
