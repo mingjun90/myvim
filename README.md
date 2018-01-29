@@ -1,59 +1,16 @@
-# myvim
+# vim-everywhere
 
 A repo to deploy vim everywhere
 
-## Install vim and plugins
+## Script installation
 
 1. Install [vim8](https://github.com/vim/vim/blob/master/runtime/doc/version8.txt)
-    - download vim source file
-        - `git clone https://github.com/vim/vim.git $HOME/vim/`
-    - install at local path on `redhat`
-        - `cd $HOME/vim/`
-        - `make clean`
-        - `./configure --with-features=huge \
-            --enable-multibyte \
-            --enable-luainterp \
-            --enable-pythoninterp \
-            --enable-rubyinterp \
-            --enable-cscope \
-            --enable-gui=auto \
-            --enable-gnome-check \
-            --enable-fontset \
-            --with-x \
-            --with-compiledby="$USER" \
-            --prefix=/home/$USER/.local`
-        - `make -j 20 && make install`
-        - add alias or export vim path to PATH
-    - install on `ubuntu16.04`
-        - `sudo apt install ncurses-dev`
-        - `./configure --with-features=huge \
-            --enable-multibyte \
-            --enable-luainterp \
-            --enable-pythoninterp \
-            --enable-rubyinterp \
-            --enable-cscope \
-            --enable-gui=auto \
-            --enable-gnome-check \
-            --enable-fontset \
-            --with-x \
-            --with-compiledby="$USER"`
-        - `sudo make -j 20`
-        - `sudo make install`
-    - check vim version
-        - `vim --version`
 
-2. Apply custom settings
-    - install [vundle](https://github.com/VundleVim/Vundle.vim)
-        - `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
-    - copy the custom vimrc to ~/.vim/vimrc
-        - `cd ~/.vim`
-        - `wget https://raw.githubusercontent.com/mingjun90/vim/master/vimrc`
-    - install plugins
-        - Launch `vim` and run `:PluginInstall`
+2. Apply [vundle](https://github.com/VundleVim/Vundle.vim)
 
-3. Install dependency
+3. Install plugins
 
-## Dependency
+## Plugin dependency
 
 ### [ale](https://github.com/w0rp/ale) (Asynchronous Lint Engine)
 - python ==> flake8

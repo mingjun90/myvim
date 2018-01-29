@@ -1,5 +1,4 @@
-" This vimrc is for vim8 
-
+" vim8 is rquired
 "-----------------------------------------------------------+
 """ vundle
 
@@ -15,10 +14,14 @@ call vundle#begin()
 """ let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-""" vim style 
-Plugin 'scrooloose/nerdTree'
+""" vim style
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+
+Plugin 'majutsushi/tagbar'
+Plugin 'universal-ctags/ctags'
 
 """ language lint
 Plugin 'w0rp/ale'
@@ -27,9 +30,12 @@ Plugin 'w0rp/ale'
 Plugin 'maralla/completor.vim'
 Plugin 'ervandew/supertab'
 
+""" Nodejs
+Plugin 'moll/vim-node'
+
 """ python
 Plugin 'tell-k/vim-autopep8'
-Plugin 'davidhalter/jedi-vim'
+"Plugin 'davidhalter/jedi-vim'
 Plugin 'heavenshell/vim-pydocstring'
 
 " All of your Plugins must be added before the following line
@@ -53,12 +59,13 @@ filetype plugin indent on    " required
 
 
 "-----------------------------------------------------------+
-""" basic coding settings
+""" basic settings
 
 set tabstop=4       " The width of a TAB is set to 4.
                     " Still it is a \t. It is just that
                     " Vim will interpret it to be having
                     " a width of 4.
+                    "
 " set autoindent
 set shiftwidth=4    " Indents will have a width of 4
 set softtabstop=4   " Sets the number of columns for a TAB
@@ -69,7 +76,7 @@ set list
 syntax on
 set background=dark
 
-set hlsearch        " highlight search pattern
+set hlsearch         "highlight search pattern
 
 set listchars=nbsp:_,tab:>-,trail:~,extends:>,precedes:<
 
@@ -78,21 +85,35 @@ set rnu
 
 set backspace=indent,eol,start
 
-set pastetoggle=<F2> 
+""" show column number
+" set ruler
+" set statusline+=col:\ %c,
+
+set pastetoggle=<F2>
+
+""" fold settings
+set foldmethod=indent
+set nofoldenable
+set foldlevel=2
+set foldclose=all
+" zc -> Close one fold under the cursor
+" zM -> Close all folds
+" zo -> Open one fold under the cursor
+" zR -> Open all folds
 
 "-----------------------------------------------------------+
 """ NERDTree
 
-autocmd vimenter * NERDTree
+map <C-n> :NERDTreeToggle<CR>
+" open a NERDTree automatically when vim starts up; move cursor into main window
+"autocmd vimenter * NERDTree
+"autocmd VimEnter * wincmd p
+" close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 
 "-----------------------------------------------------------+
 """ Tab navigation like Firefox.
-
-nnoremap <C-S-tab> :bprevious<CR>
-nnoremap <C-tab>   :bnext<CR>
-" let mapleader=" "
 let mapleader = "\<Space>"
 
 
@@ -129,7 +150,7 @@ nmap <leader>bl :ls<CR>
 """ ale (asynchronous lint engine)
 
 let g:ale_lint_on_save = 1
-let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_text_changed = 1
 " You can disable this option too
 " if you don't want linters to run on opening a file
 let g:ale_lint_on_enter = 0
@@ -137,15 +158,13 @@ let g:ale_echo_msg_format = '[%linter%][%severity%] %s'
 
 
 "-----------------------------------------------------------+
-""" jedi-vim
-
-autocmd FileType python setlocal completeopt-=preview
-
-
-"-----------------------------------------------------------+
 """ pydocstring
 
 nmap <silent> <C-I> <Plug>(pydocstring)
+
+""" python function structure
+nmap <F9> :TagbarToggle<CR>
+set tags=./tags;/
 
 
 "-----------------------------------------------------------+
@@ -162,4 +181,11 @@ autocmd FileType python inoremap <buffer> <F8> <ESC>:call Autopep8()<CR>
 
 
 "-----------------------------------------------------------+
+""" jedi-vim -> replaced by completor.vim with jedi
+"autocmd FileType python setlocal completeopt-=preview
+
+
+"-----------------------------------------------------------+
 """ completor.Vim
+"let g:completor_python_binary = '/path/to/python'
+"let g:completor_node_binary = '/path/to/node'
